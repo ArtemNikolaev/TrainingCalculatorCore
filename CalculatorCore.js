@@ -20,10 +20,6 @@ class CalculatorCore {
         this.num1 += val;
       }
     } else if (operands.indexOf(val) !== -1) {
-      if (this.operand) {
-        this.compute();
-      }
-
       this.operand = val;
     } else if (val === '.') {
       if (this.operand && this.num2.indexOf('.') === -1) {
