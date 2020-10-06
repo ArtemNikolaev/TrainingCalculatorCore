@@ -39,7 +39,7 @@ class CalculatorCore {
   }
 
   compute() {
-    this.num1 = String(eval(this.num1 + this.operand + this.num2));
+    this.num1 = String(eval(parseInt(this.num1) + this.operand + parseInt(this.num2)));
     this.num2 = '';
     this.operand = '';
   }
