@@ -23,9 +23,17 @@ class CalculatorCore {
       this.operand = val;
     } else if (val === '.') {
       if (this.operand && this.num2.indexOf('.') === -1) {
-        this.num2 += val;
+        if (this.num2) {
+          this.num2 += val;
+        } else {
+          this.num2 += ('0' + val);
+        }
       } else if (!this.operand && this.num1.indexOf('.') === -1) {
-        this.num1 += val;
+        if (this.num1) {
+          this.num1 += val;
+        } else {
+          this.num1 += ('0' + val);
+        }
       }
     } else if (val === '=' && this.num2) {
       this.compute();
@@ -35,7 +43,7 @@ class CalculatorCore {
   }
 
   compute() {
-    this.num1 = String(eval(parseInt(this.num1) + this.operand + parseInt(this.num2)));
+    this.num1 = String(eval(parseFloat(this.num1) + this.operand + parseFloat(this.num2)));
     this.num2 = '';
     this.operand = '';
   }
